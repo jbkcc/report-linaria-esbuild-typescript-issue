@@ -7,9 +7,13 @@ esbuild.build({
   bundle: true,
   minify: false,
   sourcemap: false,
-  target: "es5",
+  target: "es6",
   entryPoints: ["src/index.tsx"],
   plugins: [
-    linaria.default(),
+    linaria.default({
+      babelOptions: {
+        presets: ["@babel/preset-typescript"]
+      },
+    }),
   ],
 });
